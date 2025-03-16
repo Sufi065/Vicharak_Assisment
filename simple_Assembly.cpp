@@ -115,7 +115,15 @@ public:
 };
 
 int main() {
-    string source = "int a; a = 10; if (a == 10) { a = a + 1; }";
+    string source, line;
+    cout << "Enter your SimpleLang code (type 'END' to finish input):\n";
+    
+    while (true) {
+        getline(cin, line);
+        if (line == "END") break;
+        source += line + " ";
+    }
+
     Lexer lexer(source);
     vector<Token> tokens = lexer.tokenize();
     
